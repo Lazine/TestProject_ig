@@ -56,7 +56,8 @@ const AppTabNavigator = createBottomTabNavigator(
 AppTabNavigator.navigationOptions = {
   HomeTab: HomeTab.navigationOptions.navigation,
   title: HomeTab.navigationOptions.title,
-  headerRight: HomeTab.navigationOptions.navigation,
+  headerRight: HomeTab.navigationOptions.headerRight,
+  headerLeft: HomeTab.navigationOptions.headerLeft,
 };
 
 const AppNavigator = createStackNavigator({

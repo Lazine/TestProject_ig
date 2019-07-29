@@ -41,12 +41,12 @@ export default class CardComponent extends Component {
 				"3": require('../assets/feed_images/8.jpg'),
 				"4": require('../assets/feed_images/7.jpg'),
 		}
-		// 
-		const hashtagText = ['food','happy']; 
+		
+		const hashtagText = this.props.hashtag; 
 		const hashtags = hashtagText
-	  			.map((item,i) => <Text key={i}>{item}</Text>)
-							.reduce((acc, cur) => cur && acc !== null ? ['#',acc,'#',cur ] : [''] )
-							// (accumulator,currentValue)
+	  			.map((item,i) => <Text key={i}>#{item}</Text>)
+					// .reduce((acc, cur) => cur && acc !== null ? ['#',acc,'#',cur ] : [''] )
+						// (accumulator,currentValue)
 
 		return(
 			<Card transparent>
@@ -61,7 +61,7 @@ export default class CardComponent extends Component {
 				</CardItem>
 				<TouchableWithoutFeedback onPress={this.handleDoubleTap} >
 					{/* {(this.state.liked)? <Icon name="ios-heart" style ={}/> : null} */}
-					<Image source={images[this.props.imageSource]} style={styles.photo} />
+					<Image source={images[this.props.image]} style={styles.photo} />
 				</TouchableWithoutFeedback>
 				<CardItem style={{ paddingLeft: 10, height: 48 }}>
 					{/* <Left> */}
@@ -94,7 +94,7 @@ export default class CardComponent extends Component {
 					<Body>
 						<Text style={{ marginBottom: 14 }}>
 							<Text style={{ fontWeight: "900" }}>eatFood  </Text>
-							Ea do Lorem occaecat laborum do. Minim ullamco ipsum minim eiusmod dolore cupidatat magna exercitation amet proident qui. Est do irure magna dolor adipisicing do quis labore excepteur. Commodo veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat ullamco labore. Consequat ullamco nulla ullamco minim.
+							{this.props.article}
 						</Text>
 						<View><Text style={{color: "#2af"}}>{hashtags}</Text></View>
 						<Text style={{ fontWeight: "400", color: '#c4c4c4' }}>{this.props.date}</Text>

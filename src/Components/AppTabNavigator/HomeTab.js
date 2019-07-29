@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import { Container, Content, Icon } from 'native-base';
 import CardComponent from '../CardComponent';
@@ -33,26 +34,59 @@ export default class HomeTab extends Component {
   //     );
   //   };
   // };
+
+  static propTypes = {
+    data: PropTypes.obj,
+  };
   
   render() {
 
-    const hashtagText = {
-      "one":
+    const itemData = [
         {
-          name: ['food','happy','instafood']
+          // image: require('../../assets/feed_images/4.jpg'),
+          likes: "101",
+          date: "3 days ago",
+          tags: ['food','happy','instafood'],
+          article: "Ea do Lorem occaecat laborum do. Minim ullamco ipsum minim eiusmod dolore cupidatat magna exercitation amet proident qui. Est do irure magna dolor adipisicing do quis labore excepteur. Commodo veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat ullamco labore. Consequat ullamco nulla ullamco minim."
         },
-      "two": {
-          name: []
-      },
-    };
+        {
+          // image: require('../../assets/feed_images/5.jpg'),
+          likes: "21",
+          date: "4 days ago",
+          tags: [],
+          article: "Minim ullamco ipsum minim eiusmod dolore cupidatat magna exercitation amet proident qui. Est do irure magna dolor adipisicing do quis labore excepteur. Commodo veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat ullamco labore. Consequat ullamco nulla ullamco minim."
+        },
+        {
+          // image: require('../../assets/feed_images/8.jpg'),
+          likes: "33",
+          date: "7 days ago",
+          tags: ['food','dessert','instafood'],
+          article: "ipsum minim eiusmod dolore cupidatat magna exercitation amet proident qui. Est do irure magna dolor adipisicing do quis labore excepteur. Commodo veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat ullamco labore. Consequat ullamco nulla ullamco minim."
+        },
+        {
+          // image: require('../../assets/feed_images/7.jpg'),
+          likes: "48",
+          date: "2019/02/04",
+          tags: ['food','pizza','foodie'],
+          article: "Consequat ullamco nulla ullamco minim. Minim ullamco ipsum minim eiusmod dolore cupidatat magna exercitation amet proident qui. Est do irure magna dolor adipisicing do quis labore excepteur. Commodo veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat ullamco labore. Consequat ullamco nulla ullamco minim."
+        },
+        {
+          image: require('../../assets/feed_images/6.jpg'),
+          likes: "55",
+          date: "2019/02/03",
+          tags: ['food','foodie'],
+          article: "ullamco nulla ullamco minim. Minim ullamco ipsum minim eiusmod dolore cupidatat magna exercitation amet proident qui. Est do irure magna dolor adipisicing do quis labore excepteur. Commodo veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat ullamco labore. Consequat ullamco nulla ullamco minim."
+        },
+    ];
 
     return (
       <View style={styles.container}>
         <Content>
-          <CardComponent imageSource="1" likes="101" date="3 days ago" hashtag={hashtagText.one.name}/>
-          <CardComponent imageSource="2" likes="21" date="5 days ago" hashtag={hashtagText.two.name}/>
-          <CardComponent imageSource="3" likes="301" date="4 days ago" />
-          <CardComponent imageSource="4" likes="41" date="2019/02/04" />
+          <CardComponent image="1" likes={itemData[0].likes} date={itemData[0].date} hashtag={itemData[0].tags} article={itemData[0].article}/>
+          <CardComponent image="2" likes={itemData[1].likes} date={itemData[1].date} hashtag={itemData[1].tags} article={itemData[1].article}/>
+          <CardComponent image="3" likes={itemData[2].likes} date={itemData[2].date} hashtag={itemData[2].tags} article={itemData[2].article}/>
+          <CardComponent image="4" likes={itemData[3].likes} date={itemData[3].date} hashtag={itemData[3].tags} article={itemData[3].article}/>
+          <CardComponent data={itemData} />
         </Content>
       </View>
     );
