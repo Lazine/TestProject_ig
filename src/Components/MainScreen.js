@@ -8,7 +8,7 @@ import ProfileTab from './AppTabNavigator/ProfileTab';
 import MessagePage from './AppTabNavigator/messagePage';
 
 import { Icon } from 'native-base';
-import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator, createMaterialTopTabNavigator, createAppContainer } from 'react-navigation';
 
 export class MainScreen extends Component {
   render() {
@@ -27,7 +27,7 @@ const HomeScreen = createStackNavigator(
 },
 );
 
-const AppTabNavigator = createBottomTabNavigator(
+const AppTabNavigator = createMaterialTopTabNavigator(
   {
     HomeScreen: {
       screen: HomeScreen,
@@ -53,14 +53,27 @@ const AppTabNavigator = createBottomTabNavigator(
     tabBarPosition: "bottom",
     tabBarOptions: {
       style: {
-        ...Platform.select({
-          android: {
-            backgroundColor: "white"
-          },
-        }),
+        backgroundColor: "white",
+        height: 60,
+        borderTopWidth: 0.4,
+        borderTopColor: '#ddd',
       },
-      activeTintColor: "#000",
-      inactiveTintColor: "#d1cece",
+      indicatorStyle: { 
+        backgroundColor: '#fff',
+        // backfaceVisibility: 'hidden',
+        opacity: 0,
+        // borderWidth: 0,
+      },
+      tabStyle: {
+        justifyContent: 'flex-start',
+        // height: 70,
+      },
+      iconStyle: { 
+        height: 30,
+        width: 40,
+      },
+      activeTintColor: '#000',
+      inactiveTintColor: '#d1cece',
       showLabel: false,
       showIcon: true,
     },
