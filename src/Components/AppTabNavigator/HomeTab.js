@@ -1,46 +1,38 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import { Container, Content, Icon } from 'native-base';
 import CardComponent from '../CardComponent';
+import MessagePage from './messagePage'
 
 export default class HomeTab extends Component {
 
-  static navigationOptions = {
-  	headerLeft: <Icon name="ios-camera" style={{ paddingLeft: 15 }} />,
+  static navigationOptions = ({ navigation }) => ({
+    tabBarIcon: ({ tintColor }) => (
+      <Icon name="ios-home" style={{ color: tintColor }} focused='true' />
+    ),
+  	headerLeft: (
+      <TouchableOpacity >
+        <Icon name="ios-camera" style={{ paddingLeft: 15 }} />
+      </TouchableOpacity>
+    ),
   	title: 'homeTabTitle',
-  	headerRight: <Icon name="ios-send" style={{ paddingRight: 15 }} />,
-  	tabBarIcon: ({ tintColor }) => (
-  		<Icon name="ios-home" style={{ color: tintColor }} />
-  	),
-  }
+    headerRight: (
+        <TouchableOpacity onPress={()=> navigation.push('MessagePage')}>
+          <Icon name="ios-send" style={{ paddingRight: 15, color: '#000',}}/>
+        </TouchableOpacity>
+    ),
+  });
 
-  // static navigationOptions = ({ navigation }) => {
-  //   const params = navigation.state.params || {};
-
-  //   return {
-  //     title: "homeTabTitle",
-  //     headerLeft: <Icon name="ios-camera" style={{ paddingLeft: 15 }} />,
-  //     headerRight: (
-  //       <Icon
-  //         name="ios-send"
-  //         style={{ paddingRight: 15 }}
-  //         onPress={() => navigation.navigate( "MessagePage")}
-  //       />
-  //     ),
-  //     tabBarIcon: ({ tintColor }) => (
-  //       <Icon name="ios-home" style={{ color: tintColor }} />
-  //     );
-  //   };
+  // goToMessagePage = () => {
+  //   this.props.navigate('MessagePage');
   // };
 
-  static propTypes = {
-    data: PropTypes.obj,
-  };
   
   render() {
 
+    const { navigation } = this.props;
     const itemData = [
         {
           // image: require('../../assets/feed_images/4.jpg'),
@@ -86,12 +78,22 @@ export default class HomeTab extends Component {
           <CardComponent image="2" likes={itemData[1].likes} date={itemData[1].date} hashtag={itemData[1].tags} article={itemData[1].article}/>
           <CardComponent image="3" likes={itemData[2].likes} date={itemData[2].date} hashtag={itemData[2].tags} article={itemData[2].article}/>
           <CardComponent image="4" likes={itemData[3].likes} date={itemData[3].date} hashtag={itemData[3].tags} article={itemData[3].article}/>
-          <CardComponent data={itemData} />
+          {/* <CardComponent data={itemData} /> */}
         </Content>
       </View>
     );
   }
 }
+
+// export class MessageTab extends Component{
+//   render() {
+//     return(
+//       <TouchableOpacity onPress={() => navigate('MessagePage') } >
+//           <Icon name="ios-send" style={{ paddingRight: 15, fontSize: 20, }}/>
+//       </TouchableOpacity>
+//     );
+//   }
+// }
 
 const styles = StyleSheet.create({
   container: {

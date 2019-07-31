@@ -44,7 +44,7 @@ export default class CardComponent extends Component {
 		
 		const hashtagText = this.props.hashtag; 
 		const hashtags = hashtagText
-	  			.map((item,i) => <Text key={i}>#{item}</Text>)
+				  .map((item,i) => <Text key={i}>#{item}</Text>)
 					// .reduce((acc, cur) => cur && acc !== null ? ['#',acc,'#',cur ] : [''] )
 						// (accumulator,currentValue)
 
@@ -68,20 +68,20 @@ export default class CardComponent extends Component {
 						<TouchableOpacity style={ styles.button } onPress={this.toggleLike} >
 							<Icon name="ios-heart"
 										style={ this.state.liked
-					  					? styles.icon
+										  ? styles.icon
 											: styles.iconActive }  />
 						</TouchableOpacity>
 						<TouchableOpacity style={styles.button} onPress={() => this.setState({ commitPressStatus: !this.state.commitPressStatus}) } >
 							<Icon name="ios-text" 
 										style={ this.state.commitPressStatus
-					  					? styles.icon
+										  ? styles.icon
 											: styles.iconTouch } 
 										 />
 						</TouchableOpacity>
 						<TouchableOpacity style={styles.button} onPress={() => this.setState({ sharePressStatus: !this.state.sharePressStatus}) } >
 							<Icon name="ios-paper-plane" 
 										style={ this.state.sharePressStatus
-					  					? styles.icon
+										  ? styles.icon
 											: styles.iconTouch } 
 										 />
 						</TouchableOpacity>

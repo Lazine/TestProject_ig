@@ -7,6 +7,7 @@ import LikesTab from './AppTabNavigator/LikesTab';
 import ProfileTab from './AppTabNavigator/ProfileTab';
 import MessagePage from './AppTabNavigator/messagePage';
 
+import { Icon } from 'native-base';
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
 export class MainScreen extends Component {
@@ -15,11 +16,26 @@ export class MainScreen extends Component {
   }
 }
 
+const HomeScreen = createStackNavigator(
+{
+  HomeTab: {
+    screen: HomeTab,
+  },
+  MessagePage: {
+    screen: MessagePage,
+  },
+},
+);
+
 const AppTabNavigator = createBottomTabNavigator(
   {
-    HomeTab: {
-      screen: HomeTab,
-    },
+    HomeScreen: {
+      screen: HomeScreen,
+      navigationOptions: {
+				tabBarIcon: ({ tintColor }) => (
+          <Icon name="ios-home" style={{ color: tintColor }} focused='true' />
+        )},
+  },
     SearchTab: {
       screen: SearchTab,
     },
@@ -50,25 +66,28 @@ const AppTabNavigator = createBottomTabNavigator(
     },
     animationEnabled: true,
     swipeEnabled: true,
+  },
+  {
+    initialRouteName: 'HomeScreen',
   }
 );
 
-AppTabNavigator.navigationOptions = {
-  HomeTab: HomeTab.navigationOptions.navigation,
-  title: HomeTab.navigationOptions.title,
-  headerRight: HomeTab.navigationOptions.headerRight,
-  headerLeft: HomeTab.navigationOptions.headerLeft,
-};
+// AppTabNavigator.navigationOptions = {
+//   HomeTab: HomeTab.navigationOptions.navigation,
+//   title: HomeTab.navigationOptions.title,
+//   headerRight: HomeTab.navigationOptions.headerRight,
+//   headerLeft: HomeTab.navigationOptions.headerLeft,
+// };
 
-const AppNavigator = createStackNavigator({
-  All: {
-    screen: AppTabNavigator,
-  },
-  MessagePage: {
-    screen: MessagePage,
-  },
-});
+// const AppNavigator = createStackNavigator({
+//   All: {
+//     screen: AppTabNavigator,
+//   },
+//   MessagePage: {
+//     screen: MessagePage,
+//   },
+// });
 
-const AppContainer = createAppContainer(AppNavigator);
+const AppContainer = createAppContainer(AppTabNavigator);
 
 export default AppContainer;
