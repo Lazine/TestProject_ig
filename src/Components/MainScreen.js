@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import { Platform } from 'react-native';
 import HomeTab from './AppTabNavigator/HomeTab';
@@ -24,7 +25,7 @@ const HomeScreen = createStackNavigator(
   MessagePage: {
     screen: MessagePage,
   },
-},
+}
 );
 
 const AppTabNavigator = createMaterialTopTabNavigator(
@@ -32,10 +33,11 @@ const AppTabNavigator = createMaterialTopTabNavigator(
     HomeScreen: {
       screen: HomeScreen,
       navigationOptions: {
-				tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-home" style={{ color: tintColor }} focused='true' />
-        )},
-  },
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="ios-home" style={{ color: tintColor }} />
+        ),
+      },
+    },
     SearchTab: {
       screen: SearchTab,
     },
@@ -50,10 +52,10 @@ const AppTabNavigator = createMaterialTopTabNavigator(
     }
   },
   {
-    tabBarPosition: "bottom",
+    tabBarPosition: 'bottom',
     tabBarOptions: {
       style: {
-        backgroundColor: "white",
+        backgroundColor: 'white',
         height: 60,
         borderTopWidth: 0.4,
         borderTopColor: '#ddd',

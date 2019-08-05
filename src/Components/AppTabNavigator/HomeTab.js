@@ -39,7 +39,7 @@ export default class HomeTab extends Component {
     const { navigation } = this.props;
     const itemData = [
       {
-        // image: require('../../assets/feed_images/4.jpg'),
+        image: require('../../assets/feed_images/4.jpg'),
         likes: '101',
         date: '3 days ago',
         tags: ['food', 'happy', 'instafood'],
@@ -47,7 +47,7 @@ export default class HomeTab extends Component {
           'Ea do Lorem occaecat laborum do. Minim ullamco ipsum minim eiusmod dolore cupidatat magna exercitation amet proident qui. Est do irure magna dolor adipisicing do quis labore excepteur. Commodo veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat ullamco labore. Consequat ullamco nulla ullamco minim.',
       },
       {
-        // image: require('../../assets/feed_images/5.jpg'),
+        image: require('../../assets/feed_images/5.jpg'),
         likes: '21',
         date: '4 days ago',
         tags: [],
@@ -55,7 +55,7 @@ export default class HomeTab extends Component {
           'Minim ullamco ipsum minim eiusmod dolore cupidatat magna exercitation amet proident qui. Est do irure magna dolor adipisicing do quis labore excepteur. Commodo veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat ullamco labore. Consequat ullamco nulla ullamco minim.',
       },
       {
-        // image: require('../../assets/feed_images/8.jpg'),
+        image: require('../../assets/feed_images/8.jpg'),
         likes: '33',
         date: '7 days ago',
         tags: ['food', 'dessert', 'instafood'],
@@ -63,7 +63,7 @@ export default class HomeTab extends Component {
           'ipsum minim eiusmod dolore cupidatat magna exercitation amet proident qui. Est do irure magna dolor adipisicing do quis labore excepteur. Commodo veniam dolore cupidatat nulla consectetur do nostrud ea cupidatat ullamco labore. Consequat ullamco nulla ullamco minim.',
       },
       {
-        // image: require('../../assets/feed_images/7.jpg'),
+        image: require('../../assets/feed_images/7.jpg'),
         likes: '48',
         date: '2019/02/04',
         tags: ['food', 'pizza', 'foodie'],
@@ -80,38 +80,51 @@ export default class HomeTab extends Component {
       },
     ];
 
+    // 1. 可以用for迴圈，要先建立空陣列再跑迴圈
+
+    // let list = [];
+    // for (let i = 0, len = itemData.length; i < len; i++ ){
+    //   list.push(<CardComponent {...itemData[i]}/>);
+    // }
+
+    // 2. 或是用map讓他逐一跑過每個項目
+    const list = itemData.map((item, i) => <CardComponent {...itemData[i]}/>);
+
     return (
       <View style={styles.container}>
         <Content>
-          <CardComponent
-            image="1"
+          {list}
+
+          {/* 把層級提高！！不需要列出全部項目只需要list */}
+          {/* <CardComponent
+            image={itemData[0].image}
             likes={itemData[0].likes}
             date={itemData[0].date}
-            hashtag={itemData[0].tags}
+            tags={itemData[0].tags}
             article={itemData[0].article}
           />
           <CardComponent
-            image="2"
+            image={itemData[1].image}
             likes={itemData[1].likes}
             date={itemData[1].date}
-            hashtag={itemData[1].tags}
+            tags={itemData[1].tags}
             article={itemData[1].article}
           />
           <CardComponent
-            image="3"
+            image={itemData[2].image}
             likes={itemData[2].likes}
             date={itemData[2].date}
-            hashtag={itemData[2].tags}
+            tags={itemData[2].tags}
             article={itemData[2].article}
           />
           <CardComponent
-            image="4"
+            image={itemData[3].image}
             likes={itemData[3].likes}
             date={itemData[3].date}
-            hashtag={itemData[3].tags}
+            tags={itemData[3].tags}
             article={itemData[3].article}
-          />
-          {/* <CardComponent data={itemData} /> */}
+          /> */}
+
         </Content>
       </View>
     );

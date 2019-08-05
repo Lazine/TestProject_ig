@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import { Icon } from "native-base";;
+import { Icon } from 'native-base';
 
 class SearchTab extends Component {
   static navigationOptions = {
@@ -23,8 +24,8 @@ export default SearchTab;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

@@ -47,14 +47,14 @@ export default class CardComponent extends Component {
   toggleLike = () => this.setState(state => ({ liked: !state.liked }));
 
   render() {
-    const images = {
-      '1': require('../assets/feed_images/4.jpg'),
-      '2': require('../assets/feed_images/5.jpg'),
-      '3': require('../assets/feed_images/8.jpg'),
-      '4': require('../assets/feed_images/7.jpg'),
-    };
+    // const images = {
+    //   '1': require('../assets/feed_images/4.jpg'),
+    //   '2': require('../assets/feed_images/5.jpg'),
+    //   '3': require('../assets/feed_images/8.jpg'),
+    //   '4': require('../assets/feed_images/7.jpg'),
+    // };
 
-    const hashtagText = this.props.hashtag;
+    const hashtagText = this.props.tags;
     const hashtags = hashtagText.map((item, i) => <Text key={i}>#{item}</Text>);
     // .reduce((acc, cur) => cur && acc !== null ? ['#',acc,'#',cur ] : [''] )
     // (accumulator,currentValue)
@@ -72,7 +72,7 @@ export default class CardComponent extends Component {
         </CardItem>
         <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
           {/* {(this.state.liked)? <Icon name="ios-heart" style ={}/> : null} */}
-          <Image source={images[this.props.image]} style={styles.photo} />
+          <Image source={this.props.image} style={styles.photo} />
         </TouchableWithoutFeedback>
         <CardItem style={{ paddingLeft: 10, height: 48 }}>
           {/* <Left> */}
