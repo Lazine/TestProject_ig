@@ -2,15 +2,16 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 import {
   createStackNavigator,
   createBottomTabNavigator,
   createAppContainer,
 } from 'react-navigation';
-import { Container, Content, Icon } from 'native-base';
+import { Container, Content, Icon, Thumbnail } from 'native-base';
 import CardComponent from '../CardComponent';
+import Stories from '../Stories';
 import MessagePage from './messagePage';
 
 export default class HomeTab extends Component {
@@ -80,6 +81,45 @@ export default class HomeTab extends Component {
       },
     ];
 
+    const storiesData = [
+      {
+        image: require('../../assets/StoriesHeaderThumbnails/1.jpg'),
+        name: 'politecat',
+      },
+      {
+        image: require('../../assets/StoriesHeaderThumbnails/2.jpg'),
+        name: 'crycat3345678',
+      },
+      {
+        image: require('../../assets/StoriesHeaderThumbnails/3.jpg'),
+        name: 'doge',
+      },
+      {
+        image: require('../../assets/StoriesHeaderThumbnails/4.jpg'),
+        name: 'dooöoog',
+      },
+      {
+        image: require('../../assets/StoriesHeaderThumbnails/5.jpg'),
+        name: 'pōõh',
+      },
+      {
+        image: require('../../assets/StoriesHeaderThumbnails/6.jpg'),
+        name: 'dognicehat',
+      },
+      {
+        image: require('../../assets/StoriesHeaderThumbnails/7.jpg'),
+        name: 'chichen',
+      },
+      {
+        image: require('../../assets/StoriesHeaderThumbnails/8.jpg'),
+        name: 'isthisa??',
+      },
+      {
+        image: require('../../assets/StoriesHeaderThumbnails/9.jpg'),
+        name: 'cryFroggy',
+      },
+    ];
+
     // 1. 可以用for迴圈，要先建立空陣列再跑迴圈
 
     // let list = [];
@@ -88,11 +128,16 @@ export default class HomeTab extends Component {
     // }
 
     // 2. 或是用map讓他逐一跑過每個項目
-    const list = itemData.map((item, i) => <CardComponent {...itemData[i]}/>);
+    const list = itemData.map((item, i) => <CardComponent  key={i} {...itemData[i]}/>);
+
+    const stories = storiesData.map((item, i) => <Stories  key={i} {...storiesData[i]}/>);
 
     return (
       <View style={styles.container}>
         <Content>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{ alignItems: 'center', height: 80, borderBottomWidth: 0.4, borderBottomColor: '#c4c4c4' }} >
+              {stories}
+            </ScrollView>
           {list}
 
           {/* 把層級提高！！不需要列出全部項目只需要list */}
@@ -130,16 +175,6 @@ export default class HomeTab extends Component {
     );
   }
 }
-
-// export class MessageTab extends Component{
-//   render() {
-//     return(
-//       <TouchableOpacity onPress={() => navigate('MessagePage') } >
-//           <Icon name="ios-send" style={{ paddingRight: 15, fontSize: 20, }}/>
-//       </TouchableOpacity>
-//     );
-//   }
-// }
 
 const styles = StyleSheet.create({
   container: {

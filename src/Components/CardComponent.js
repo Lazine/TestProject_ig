@@ -61,7 +61,7 @@ export default class CardComponent extends Component {
 
     return (
       <Card transparent>
-        <CardItem style={{ paddingLeft: 10, paddingVertical: 4, height: 58 }}>
+        <CardItem style={{ paddingLeft: 10, paddingVertical: 4, height: 50 }}>
           <Left>
             <Thumbnail small source={require('../assets/me.png')} />
             <Body>
