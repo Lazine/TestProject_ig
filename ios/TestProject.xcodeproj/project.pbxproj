@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* TestProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TestProjectTests.m */; };
 		08D7416CF80E411F813B7A27 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2552CF2F81CD44319E4E2505 /* Roboto.ttf */; };
@@ -38,6 +37,7 @@
 		C36F27DEB2B341C1A7DAC43C /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE32934F284E4078BBF04D40 /* MaterialIcons.ttf */; };
 		EB79935C81AE4E5BA9E65AF4 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0468E76FBE64269815E51E6 /* FontAwesome5_Brands.ttf */; };
 		F4C648CA51F8424FBB5D2CC0 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8CD57A6FA74AC49C137BCC /* FontAwesome.ttf */; };
+		B076E198C32142A884FA91B9 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8AB3CA4E435435A95B6A273 /* Fontisto.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +104,7 @@
 		ED837F75038BD96CDC71B7C4 /* libPods-TestProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F951F7BE1B694ADF88598EA0 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		FE32934F284E4078BBF04D40 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		E8AB3CA4E435435A95B6A273 /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +258,7 @@
 				3D3D6A4BE3904A61A447A76A /* rubicon-icon-font.ttf */,
 				4BDC53A197304D6992684FC2 /* SimpleLineIcons.ttf */,
 				BB1E7FF584804D2E87618B8D /* Zocial.ttf */,
+				E8AB3CA4E435435A95B6A273 /* Fontisto.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -430,6 +432,7 @@
 				948A88D65F584737B3D9A3A7 /* rubicon-icon-font.ttf in Resources */,
 				6B94DC8D00CB4372B3989B8C /* SimpleLineIcons.ttf in Resources */,
 				9659D885AE97437EA88C867B /* Zocial.ttf in Resources */,
+				B076E198C32142A884FA91B9 /* Fontisto.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

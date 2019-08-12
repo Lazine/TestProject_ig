@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, Alert, Animated, TouchableWithoutFeedback } from 'react-native';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 import { Icon } from 'native-base';
-import { TouchableNativeFeedback } from 'react-native-gesture-handler';
 
 class MessagePage extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -22,6 +21,7 @@ class MessagePage extends Component {
   constructor(props) {
     super(props);
     this.handlePressIn = this.handlePressIn.bind(this);
+    this.handlePressOut = this.handlePressOut.bind(this);
     this.animatedValue = new Animated.Value(1);
   }
 
@@ -37,7 +37,7 @@ class MessagePage extends Component {
         {text: 'Nah', onPress: () => console.log('Ask me later pressed')},
         {
           text: 'sorry',
-          onPress: () => this.setState( preState => ({ animatedValue: preState.animatedValue + 1 })),
+          onPress: () => console.log('Ask me later pressed'),
           style: 'cancel',
         },
       ],
@@ -47,10 +47,18 @@ class MessagePage extends Component {
   handlePressIn() {
     Animated.spring(this.animatedValue, {
       toValue: 0.5,
-      friction: 1,// 摩擦力，默認為7.
-      tension: 80,// 張力，默認40。
+      // 摩擦力，默認為7.
+      // 張力，默認40。
     }).start();
     setTimeout(() => { this.alertFun(); }, 1400);
+  }
+
+  handlePressOut() {
+    Animated.spring(this.animatedValue, {
+      toValue: 1,
+      friction: 3,
+      tension: 40,
+    }).start();
   }
 
   render() {
@@ -61,7 +69,7 @@ class MessagePage extends Component {
     return (
       <View style={styles.container}>
         <Text>MessagePage</Text>
-        <TouchableWithoutFeedback onPressIn={this.handlePressIn}>
+        <TouchableWithoutFeedback onPressIn={this.handlePressIn} onPressOut={this.handlePressOut}>
           <Animated.View style={[styles.button, animatedStyle]}>
             <Text style={styles.alink}>click me!!!</Text>
           </Animated.View>
