@@ -2,25 +2,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-} from 'react-native';
-
-import {
-  Card,
-  CardItem,
-  Thumbnail,
-  Body,
-  Left,
-  Right,
-  Button,
-  Icon,
-} from 'native-base';
+import { View, Text, StyleSheet, Image, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base';
 
 export default class CardComponent extends Component {
   constructor(props) {
@@ -63,7 +46,7 @@ export default class CardComponent extends Component {
       <Card transparent>
         <CardItem style={{ paddingLeft: 10, paddingVertical: 4, height: 50 }}>
           <Left>
-            <Thumbnail small source={require('../assets/me.png')} />
+            <Thumbnail small source={require('../assets/me.jpg')} />
             <Body>
               <Text>eatFood</Text>
               <Text note>Jan 15, 2018</Text>

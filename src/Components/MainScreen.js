@@ -13,7 +13,7 @@ import { createStackNavigator, createMaterialTopTabNavigator, createAppContainer
 
 export class MainScreen extends Component {
   render() {
-    return <AppNavigator />;
+    return <AppContainer />;
   }
 }
 

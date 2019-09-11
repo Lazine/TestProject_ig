@@ -50,7 +50,7 @@ class MessagePage extends Component {
       // 摩擦力，默認為7.
       // 張力，默認40。
     }).start();
-    setTimeout(() => { this.alertFun(); }, 1400);
+    setTimeout(() => { this.alertFun(); }, 500);
   }
 
   handlePressOut() {

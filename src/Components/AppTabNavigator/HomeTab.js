@@ -4,11 +4,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
-import {
-  createStackNavigator,
-  createBottomTabNavigator,
-  createAppContainer,
-} from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import { Container, Content, Icon, Thumbnail } from 'native-base';
 import CardComponent from '../CardComponent';
 import Stories from '../Stories';
