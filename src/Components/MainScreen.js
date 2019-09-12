@@ -9,7 +9,9 @@ import ProfileTab from './AppTabNavigator/ProfileTab';
 import MessagePage from './AppTabNavigator/messagePage';
 
 import { Icon } from 'native-base';
-import { createStackNavigator, createMaterialTopTabNavigator, createAppContainer } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
 
 export class MainScreen extends Component {
   render() {

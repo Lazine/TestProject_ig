@@ -3,7 +3,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Alert, Animated, TouchableWithoutFeedback } from 'react-native';
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import { Icon } from 'native-base';
 
 class MessagePage extends Component {
